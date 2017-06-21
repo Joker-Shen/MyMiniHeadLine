@@ -2,9 +2,12 @@ package com.shen.myminiheadline.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.shen.myminiheadline.MainActivity;
 import com.shen.myminiheadline.R;
@@ -15,12 +18,18 @@ import java.util.TimerTask;
 public class SplashActivity extends AppCompatActivity {
     private SharedPreferences sp;
     private boolean isFirstLogin ;
+    private MyCount myCount;
+    private TextView tvCountDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         sp = getSharedPreferences("isFirstLogin",MODE_PRIVATE);
+        tvCountDownTimer = (TextView) findViewById(R.id.tv_countdown_timer);
+
         isFirstLogin = sp.getBoolean("isFirstKey",true);
+        myCount = new MyCount(3000,1000);
+        myCount.start();
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
@@ -40,5 +49,34 @@ public class SplashActivity extends AppCompatActivity {
                 SplashActivity.this.finish();
             }
         },3000);
+    }
+
+    class MyCount extends CountDownTimer {
+        /**
+         * @param millisInFuture    The number of millis in the future from the call
+         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
+         *                          is called.
+         * @param countDownInterval The interval along the way to receive
+         *                          {@link #onTick(long)} callbacks.
+         */
+        public MyCount(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            tvCountDownTimer.setText(millisUntilFinished/1000+"s");
+        }
+
+        @Override
+        public void onFinish() {
+
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        myCount.cancel();
     }
 }

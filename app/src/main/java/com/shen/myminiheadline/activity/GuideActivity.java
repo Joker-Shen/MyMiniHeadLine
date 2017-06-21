@@ -27,7 +27,7 @@ public class GuideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guide);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         btnGo = (Button) findViewById(R.id.btn_go);
-
+        btnGo.setVisibility(View.GONE);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +55,8 @@ public class GuideActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 if(position == 3){
                     btnGo.setVisibility(View.VISIBLE);
+                }else{
+                    btnGo.setVisibility(View.GONE);
                 }
             }
 
