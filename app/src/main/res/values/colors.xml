@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="radiogroup_bg_color">#3d3939</color>
+    <color name="tab_bg_color">#FFFFE102</color>
+    <color name="myself_round">#cecdcd</color>
+    <color name="myself_btn_color">#898787</color>
+    <color name="myself_click_login">#f4f2f2</color>
 </resources>

@@ -25,7 +25,7 @@ import org.xutils.x;
  */
 public class WelfareFragment extends Fragment implements WelfareCallback{
 
-   // @ViewInject(R.id.recyclerview) private RecyclerView recyclerView;
+    //@ViewInject(R.id.recyclerview) private RecyclerView recyclerView;
     private RecyclerView recyclerView;
     private String url = "http://image.baidu.com/channel/listjson?pn=0&rn=30&tag1=%E7%BE%8E%E5%A5%B3&tag2=%E5%85%A8%E9%83%A8&ftags=%E5%B0%8F%E6%B8%85%E6%96%B0&ie=utf8";
     private WelfareAdapter adapter;
@@ -38,7 +38,7 @@ public class WelfareFragment extends Fragment implements WelfareCallback{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_welfare,container,false);
-        //x.view().inject(getActivity());???
+        //x.view().inject(getActivity());??
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         new WelfareAsyncTask(this).execute(url);
         return view;
