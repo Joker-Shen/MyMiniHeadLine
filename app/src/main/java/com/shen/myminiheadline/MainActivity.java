@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @ViewInject(R.id.find)private RadioButton find;
     @ViewInject(R.id.myself)private RadioButton myself;
     @ViewInject(R.id.welfare)private RadioButton welfare;
-    @ViewInject(R.id.ll_container)private LinearLayout llContainer;
+    //@ViewInject(R.id.ll_container)private LinearLayout llContainer;
     private FragmentManager manager;
     private FragmentTransaction transaction;
     @Override
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        homepage.setChecked(true);
 
     }
 
