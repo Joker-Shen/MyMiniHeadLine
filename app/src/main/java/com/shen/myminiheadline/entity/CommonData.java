@@ -3,10 +3,12 @@ package com.shen.myminiheadline.entity;
 import java.util.List;
 
 /**
- * Created by shgl1hz1 on 2017/6/26.
+ * Created by shgl1hz1 on 2017/6/29.
  */
 
 public class CommonData {
+
+
 
     private boolean status;
     private int count;
@@ -47,25 +49,14 @@ public class CommonData {
 
     public static class DataBean {
 
-
-        private AlbumsBean albums;
         private int pageno;
-        private int currtime;
+
         private String currsign;
         private int prevtime;
         private String prevsign;
         private int nexttime;
         private String nextsign;
-        private List<ListBeanX> list;
-        private List<?> interactive;
-
-        public AlbumsBean getAlbums() {
-            return albums;
-        }
-
-        public void setAlbums(AlbumsBean albums) {
-            this.albums = albums;
-        }
+        private List<ListBean> list;
 
         public int getPageno() {
             return pageno;
@@ -75,13 +66,7 @@ public class CommonData {
             this.pageno = pageno;
         }
 
-        public int getCurrtime() {
-            return currtime;
-        }
 
-        public void setCurrtime(int currtime) {
-            this.currtime = currtime;
-        }
 
         public String getCurrsign() {
             return currsign;
@@ -123,178 +108,44 @@ public class CommonData {
             this.nextsign = nextsign;
         }
 
-        public List<ListBeanX> getList() {
+        public List<ListBean> getList() {
             return list;
         }
 
-        public void setList(List<ListBeanX> list) {
+        public void setList(List<ListBean> list) {
             this.list = list;
         }
 
-        public List<?> getInteractive() {
-            return interactive;
-        }
-
-        public void setInteractive(List<?> interactive) {
-            this.interactive = interactive;
-        }
-
-        public static class AlbumsBean {
-
-
-            private int hide_album;
-            private List<ListBean> list;
-
-            public int getHide_album() {
-                return hide_album;
-            }
-
-            public void setHide_album(int hide_album) {
-                this.hide_album = hide_album;
-            }
-
-            public List<ListBean> getList() {
-                return list;
-            }
-
-            public void setList(List<ListBean> list) {
-                this.list = list;
-            }
-
-            public static class ListBean {
-
-
-                private String Id;
-                private String title;
-                private String ios_src;
-                private String android_src;
-                private String icon_src;
-                private String start;
-                private String type;
-                private String _status;
-                private int visit_num;
-                private String suit;
-                private String nsuit;
-
-                public String getId() {
-                    return Id;
-                }
-
-                public void setId(String Id) {
-                    this.Id = Id;
-                }
-
-                public String getTitle() {
-                    return title;
-                }
-
-                public void setTitle(String title) {
-                    this.title = title;
-                }
-
-                public String getIos_src() {
-                    return ios_src;
-                }
-
-                public void setIos_src(String ios_src) {
-                    this.ios_src = ios_src;
-                }
-
-                public String getAndroid_src() {
-                    return android_src;
-                }
-
-                public void setAndroid_src(String android_src) {
-                    this.android_src = android_src;
-                }
-
-                public String getIcon_src() {
-                    return icon_src;
-                }
-
-                public void setIcon_src(String icon_src) {
-                    this.icon_src = icon_src;
-                }
-
-                public String getStart() {
-                    return start;
-                }
-
-                public void setStart(String start) {
-                    this.start = start;
-                }
-
-                public String getType() {
-                    return type;
-                }
-
-                public void setType(String type) {
-                    this.type = type;
-                }
-
-                public String get_status() {
-                    return _status;
-                }
-
-                public void set_status(String _status) {
-                    this._status = _status;
-                }
-
-                public int getVisit_num() {
-                    return visit_num;
-                }
-
-                public void setVisit_num(int visit_num) {
-                    this.visit_num = visit_num;
-                }
-
-                public String getSuit() {
-                    return suit;
-                }
-
-                public void setSuit(String suit) {
-                    this.suit = suit;
-                }
-
-                public String getNsuit() {
-                    return nsuit;
-                }
-
-                public void setNsuit(String nsuit) {
-                    this.nsuit = nsuit;
-                }
-            }
-        }
-
-        public static class ListBeanX {
+        public static class ListBean {
             /**
-             * Id : 163547
+             * Id : 163552
              * cate_id : 4
              * ncate_id : 0
              * src_id : 0
-             * title : 岛国这嘴炮片，凭什么好于94%喜剧
-             * img_src : http://img3.lerays.com/stream/2016/12/23/1882481941.jpg!theme
+             * title : 孙俪邓超：婚姻中，“舒服”到底有多重要？
+             * img_src : http://img3.lerays.com/stream/2017/02/23/91aa53d83438fbc0b25a3623179c718a.jpg!theme
              * has_attr : 1
              * img_position : null
              * summary :
-             * is_rec : 1
              * src_link : null
-             * pubtime : 1497083536
-             * ack_code : Je6v5Dpj
-             * visit_num : 7623
-             * comment_num : 62
+             * is_rec : 0
+             * pubtime : 1498226533
+             * ack_code : pusbQjdv
+             * visit_num : 4478
+             * comment_num : 6
              * src_title :
-             * cate_title : 电影头条
-             * topic_id : 0
-             * query_string : acm=none-54-163547-Je6v5Dpj&stream_id=163547&_ack=Je6v5Dpj
-             * display : {"type":"visit_num","value":7623}
+             * cate_title : 她刊
+             * is_hot : false
+             * display : {"type":"visit_num","value":4478}
              * action : {"target":"_self","type":"inter","value":null}
              * has_image : true
              * has_video : false
              * is_promote : false
              * is_original : false
              * has_quiz : false
+             * has_inter : false
              * is_trending : false
+             * query_string : acm=none-54-163552-pusbQjdv&stream_id=163552&_ack=pusbQjdv
              */
 
             private String Id;
@@ -306,16 +157,15 @@ public class CommonData {
             private String has_attr;
             private Object img_position;
             private String summary;
-            private String is_rec;
             private Object src_link;
+            private String is_rec;
             private String pubtime;
             private String ack_code;
             private int visit_num;
             private String comment_num;
             private String src_title;
             private String cate_title;
-            private int topic_id;
-            private String query_string;
+            private boolean is_hot;
             private DisplayBean display;
             private ActionBean action;
             private boolean has_image;
@@ -323,7 +173,9 @@ public class CommonData {
             private boolean is_promote;
             private boolean is_original;
             private boolean has_quiz;
+            private boolean has_inter;
             private boolean is_trending;
+            private String query_string;
 
             public String getId() {
                 return Id;
@@ -397,20 +249,20 @@ public class CommonData {
                 this.summary = summary;
             }
 
-            public String getIs_rec() {
-                return is_rec;
-            }
-
-            public void setIs_rec(String is_rec) {
-                this.is_rec = is_rec;
-            }
-
             public Object getSrc_link() {
                 return src_link;
             }
 
             public void setSrc_link(Object src_link) {
                 this.src_link = src_link;
+            }
+
+            public String getIs_rec() {
+                return is_rec;
+            }
+
+            public void setIs_rec(String is_rec) {
+                this.is_rec = is_rec;
             }
 
             public String getPubtime() {
@@ -461,20 +313,12 @@ public class CommonData {
                 this.cate_title = cate_title;
             }
 
-            public int getTopic_id() {
-                return topic_id;
+            public boolean isIs_hot() {
+                return is_hot;
             }
 
-            public void setTopic_id(int topic_id) {
-                this.topic_id = topic_id;
-            }
-
-            public String getQuery_string() {
-                return query_string;
-            }
-
-            public void setQuery_string(String query_string) {
-                this.query_string = query_string;
+            public void setIs_hot(boolean is_hot) {
+                this.is_hot = is_hot;
             }
 
             public DisplayBean getDisplay() {
@@ -533,6 +377,14 @@ public class CommonData {
                 this.has_quiz = has_quiz;
             }
 
+            public boolean isHas_inter() {
+                return has_inter;
+            }
+
+            public void setHas_inter(boolean has_inter) {
+                this.has_inter = has_inter;
+            }
+
             public boolean isIs_trending() {
                 return is_trending;
             }
@@ -541,10 +393,18 @@ public class CommonData {
                 this.is_trending = is_trending;
             }
 
+            public String getQuery_string() {
+                return query_string;
+            }
+
+            public void setQuery_string(String query_string) {
+                this.query_string = query_string;
+            }
+
             public static class DisplayBean {
                 /**
                  * type : visit_num
-                 * value : 7623
+                 * value : 4478
                  */
 
                 private String type;
@@ -607,7 +467,7 @@ public class CommonData {
 
     public static class ExtBean {
         /**
-         * c_time : 1498461232
+         * c_time : 1498723201
          * trending_border : 6000
          * inter_url : http://app.lerays.com/stream/app/view?stream_id={stream_id}&_ack={ack_code}&from=wtt-app
          */

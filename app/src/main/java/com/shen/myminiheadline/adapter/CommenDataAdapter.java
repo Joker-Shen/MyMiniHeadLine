@@ -1,8 +1,6 @@
 package com.shen.myminiheadline.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import com.shen.myminiheadline.R;
 import com.shen.myminiheadline.entity.CommonData;
 import com.squareup.picasso.Picasso;
 
-import java.io.PipedOutputStream;
 import java.util.List;
 
 /**
@@ -22,10 +19,10 @@ import java.util.List;
  */
 
 public class CommenDataAdapter extends BaseAdapter {
-    private List<CommonData.DataBean.ListBeanX> list;
+    private List<CommonData.DataBean.ListBean> list;
     private Context context;
 
-    public CommenDataAdapter(List<CommonData.DataBean.ListBeanX> list, Context context) {
+    public CommenDataAdapter(List<CommonData.DataBean.ListBean> list, Context context) {
         this.list = list;
         this.context = context;
     }

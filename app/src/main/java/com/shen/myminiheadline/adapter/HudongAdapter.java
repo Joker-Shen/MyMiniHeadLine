@@ -19,10 +19,10 @@ import java.util.List;
  */
 
 public class HudongAdapter extends BaseAdapter {
-    private List<CommonData.DataBean.ListBeanX> listBean;
+    private List<CommonData.DataBean.ListBean> listBean;
     private Context context;
 
-    public HudongAdapter(Context context, List<CommonData.DataBean.ListBeanX> listBean) {
+    public HudongAdapter(Context context, List<CommonData.DataBean.ListBean> listBean) {
         this.context = context;
         this.listBean = listBean;
     }
