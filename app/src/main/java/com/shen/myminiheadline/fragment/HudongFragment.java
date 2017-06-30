@@ -10,6 +10,7 @@ import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -49,6 +50,14 @@ public class HudongFragment extends Fragment implements CommonDataCallback{
         pullToRefreshListView.setAdapter(adapter);
         View emptyView = LayoutInflater.from(getContext()).inflate(R.layout.net_erro_layout,null);
         pullToRefreshListView.setEmptyView(emptyView);
+
+        //pullToRefreshListView子项点击进入webview
+        pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                
+            }
+        });
         return view;
     }
 
@@ -66,7 +75,6 @@ public class HudongFragment extends Fragment implements CommonDataCallback{
                 refreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
                 asyncTask();
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -79,7 +87,7 @@ public class HudongFragment extends Fragment implements CommonDataCallback{
             }
         });
     }
-
+    //封装下拉刷新的异步任务
     public void asyncTask(){
         new CommonAsyncTask(this,pullToRefreshListView).execute(url);
     }

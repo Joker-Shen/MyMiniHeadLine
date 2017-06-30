@@ -8,4 +8,5 @@
     <color name="myself_round">#cecdcd</color>
     <color name="myself_btn_color">#898787</color>
     <color name="myself_click_login">#f4f2f2</color>
+    <color name="find_view_color">#FFAA3C</color>
 </resources>
