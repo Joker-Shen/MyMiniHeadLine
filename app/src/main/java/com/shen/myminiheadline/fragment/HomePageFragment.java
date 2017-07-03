@@ -55,9 +55,9 @@ public class HomePageFragment extends Fragment {
         tabPic = (TabLayout) view.findViewById(R.id.tab_pic);
         viewPager = (ViewPager) view.findViewById(R.id.home_viewpager);
 
-
+        //tab列表
         listTabs= new ArrayList<>();
-
+        //tab列表内容
         listTabs.add("热门");
         listTabs.add("奇趣");
         listTabs.add("娱乐");
@@ -75,6 +75,8 @@ public class HomePageFragment extends Fragment {
         listTabs.add("互动");
 
         listFragments = new ArrayList<>();
+
+        //tablayout绑定表标签
         for(int i =0;i<listTabs.size()-1;i++){
             bundle = new Bundle();
             bundle.putInt("key",i);
@@ -84,17 +86,25 @@ public class HomePageFragment extends Fragment {
             tabLayout.addTab(tabLayout.newTab().setText(listTabs.get(i)));
             tabPic.addTab(tabPic.newTab().setText(listTabs.get(i)));
         }
-
+        //添加互动Fragment
         listFragments.add(new HudongFragment());
 
-
+        //设置tablayout可滚动模式
         tabLayout.setTabMode(tabLayout.MODE_SCROLLABLE);
         tabPic.setTabMode(tabLayout.MODE_SCROLLABLE);
+
+        //绑定适配器
         adapter = new HomePagerViewPagerAdapter(getChildFragmentManager(),listTabs,listFragments);
         viewPager.setAdapter(adapter);
+
+        //tablayout与viewpager联动
         tabLayout.setupWithViewPager(viewPager);
         tabPic.setupWithViewPager(viewPager);
 
+       //当没有标签被选定时设置第一个被选定
+        tabPic.getTabAt(0).setIcon(R.mipmap.top_tab_bottom);
+
+        //监听tablayout，设置萌萌哒小图片
         tabPic.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

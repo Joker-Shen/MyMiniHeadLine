@@ -1,6 +1,7 @@
 package com.shen.myminiheadline.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
@@ -8,11 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.shen.myminiheadline.R;
+import com.shen.myminiheadline.activity.WebviewActivity;
 import com.shen.myminiheadline.adapter.CommenDataAdapter;
 import com.shen.myminiheadline.asyncTask.CommonAsyncTask;
 import com.shen.myminiheadline.callbackInterface.CommonDataCallback;
@@ -172,14 +175,14 @@ public class CommonFragment extends Fragment implements CommonDataCallback {
             }
         });
 
-//        pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(getContext(), WebViewActivity.class);
-//                intent.putExtra("webUrl",list.get(i-1).getQuery_string());
-//                startActivity(intent);
-//            }
-//        });
+        pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), WebviewActivity.class);
+                intent.putExtra("webUrl", "http://app.lerays.com/stream/view?"+list.get(i-1).getQuery_string());
+                startActivity(intent);
+            }
+        });
 
 
     }
