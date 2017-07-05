@@ -76,6 +76,7 @@ public class CommenDataAdapter extends BaseAdapter {
                 holder2.tvCateTitle = (TextView) convertView.findViewById(R.id.tv_cate_title);
                 holder2.tvTitle = (TextView) convertView.findViewById(R.id.tv_title);
                 holder2.tvVisitNum = (TextView) convertView.findViewById(R.id.tv_value);
+                holder2.ivHasVideo = (ImageView) convertView.findViewById(R.id.iv_has_video);
                 convertView.setTag(holder2);
             }
         }else{
@@ -91,10 +92,20 @@ public class CommenDataAdapter extends BaseAdapter {
             Picasso.with(context).load(list.get(position).getImg_src()).into(holder1.ivPic);
         }else{
             holder2.tvTitle.setText(list.get(position).getTitle());
-            holder2.tvVisitNum.setText(list.get(position).getAction().getValue()+"");
+            holder2.tvVisitNum.setText(list.get(position).getVisit_num()+"");
             holder2.tvCateTitle.setText(list.get(position).getCate_title());
             Picasso.with(context).load(list.get(position).getImg_src()).into(holder2.ivPic);
+            if(list.get(position).isHas_video() == true){
+                holder2.ivHasVideo.setVisibility(View.VISIBLE);
+            }else{
+                holder2.ivHasVideo.setVisibility(View.GONE);
+            }
+
+            if(list.get(position).getVisit_num()>10000){
+                holder2.tvVisitNum.setText(list.get(position).getVisit_num()/10000+"万+");
+            }
         }
+
 
         return convertView;
     }
@@ -109,5 +120,6 @@ public class CommenDataAdapter extends BaseAdapter {
         private TextView tvCateTitle;
         private TextView tvVisitNum;
         private ImageView ivPic;
+        private ImageView ivHasVideo;
     }
 }

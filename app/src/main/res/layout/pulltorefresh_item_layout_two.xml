@@ -15,7 +15,7 @@
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginBottom="6dp"
             android:id="@+id/linearLayout">
             <TextView
@@ -27,13 +27,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/cate_visit_icon"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="8dp"/>
             <TextView
                 android:id="@+id/tv_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="9904"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="8dp"/>
         </LinearLayout>
 
         <TextView
@@ -48,11 +48,23 @@
             android:layout_alignLeft="@+id/linearLayout"
             android:layout_alignStart="@+id/linearLayout"/>
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/iv_img_src"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="centerCrop"
-        android:layout_margin="10dp"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_img_src"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/iv_has_video"
+            android:layout_centerInParent="true"
+            android:src="@drawable/video_player_icon"
+            />
+    </RelativeLayout>
 </LinearLayout>

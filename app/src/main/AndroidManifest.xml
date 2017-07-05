@@ -26,6 +26,8 @@
         </activity>
         <activity android:name=".activity.WebviewActivity">
         </activity>
+        <activity android:name=".activity.SubscribeInfoActivity">
+        </activity>
     </application>
 
 </manifest>

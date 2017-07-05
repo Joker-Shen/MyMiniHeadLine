@@ -2,6 +2,7 @@ package com.shen.myminiheadline.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -10,11 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.shen.myminiheadline.R;
+import com.shen.myminiheadline.activity.SubscribeInfoActivity;
 import com.shen.myminiheadline.adapter.FindGvAdapter;
 import com.shen.myminiheadline.adapter.FindVpAdapter;
 import com.shen.myminiheadline.entity.FindGv;
@@ -107,6 +110,23 @@ public class FindFragment extends Fragment {
                 FindGv findGv = gson.fromJson(result,FindGv.class);
                 findGvAdapter = new FindGvAdapter(findGv,getContext());
                 gridView.setAdapter(findGvAdapter);
+
+
+                //监听Gridview的点击事件，点击进入订阅的详情
+                gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(getContext(), SubscribeInfoActivity.class);
+                        switch (position){
+                            case 0:
+                                intent.putExtra("url","http://app.lerays.com/api/stream/tag/slist?nextsign=null&pubtime=null&tag_id=1");
+                                Log.i("FindFragmentUrl",url);
+                                intent.putExtra("title","微8条");
+                                break;
+                        }
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
