@@ -1,5 +1,6 @@
 package com.shen.myminiheadline.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,7 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -52,7 +54,7 @@ public class SubscribeInfoActivity extends AppCompatActivity implements Subscrib
     }
 
     @Override
-    public void callback(SubscribeData subscribeData) {
+    public void callback(final SubscribeData subscribeData) {
         list.addAll(subscribeData.getData().getList());
         adapter.notifyDataSetChanged();
 
@@ -65,6 +67,20 @@ public class SubscribeInfoActivity extends AppCompatActivity implements Subscrib
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                String nexttime = subscribeData.getData().getNexttime()+"";
+                String nextsign = subscribeData.getData().getNextsign();
+                url = "http://app.lerays.com/api/stream/tag/slist?nextsign="+nextsign+"&pubtime="+nexttime+"&tag_id=1";
+                loadData();
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        pullToRefreshListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SubscribeInfoActivity.this,WebviewActivity.class);
+                intent.putExtra("webUrl","http://app.lerays.com/stream/view?"+"acm=none-50-"+list.get(position-1).getStream_id()+"-"+list.get(position-1).getAck_code()+"&stream_id="+list.get(position-1).getStream_id()+"&_ack="+list.get(position-1).getAck_code());
+                startActivity(intent);
 
             }
         });

@@ -17,7 +17,9 @@ import android.widget.ImageView;
 
 import com.google.gson.Gson;
 import com.shen.myminiheadline.R;
+import com.shen.myminiheadline.activity.DiscoverVpActivity;
 import com.shen.myminiheadline.activity.SubscribeInfoActivity;
+import com.shen.myminiheadline.activity.WebviewActivity;
 import com.shen.myminiheadline.adapter.FindGvAdapter;
 import com.shen.myminiheadline.adapter.FindVpAdapter;
 import com.shen.myminiheadline.entity.FindGv;
@@ -41,6 +43,8 @@ public class FindFragment extends Fragment {
     private List<ImageView> listPics;
     private String url = "http://app.lerays.com/api/discovery/navi";
     private String urlGv = "http://app.lerays.com/api/user/subscription/list";
+    private String[] urls = {"http://app.lerays.com/api/stream/rank/day","http://app.lerays.com/api/stream/rank/week","http://app.lerays.com/api/stream/rank/month"};
+    private String[] titles = {"本日热点","本周热点","本月热点"};
     private FindVpAdapter adapter;
     private GridView gridView;
     private FindGvAdapter findGvAdapter;
@@ -77,6 +81,19 @@ public class FindFragment extends Fragment {
                     listPics.add(iv);
                     //Log.i("imageUrl",findVp.getData().get(i).getImg_src());
                     Picasso.with(getContext()).load(findVp.getData().get(i).getImg_src()).into(listPics.get(i));
+
+                    //每日，每周，每月的点击详情
+                    final int finalI = i;
+                    iv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getContext(), DiscoverVpActivity.class);
+                            intent.putExtra("lvUrl",urls[finalI]);
+                            //Log.i("FindFraUrl",urls[finalI]);
+                            intent.putExtra("title",titles[finalI]);
+                            startActivity(intent);
+                        }
+                    });
                 }
                 //Log.i("listPics",listPics.size()+"");
                 adapter = new FindVpAdapter(listPics);
@@ -123,6 +140,7 @@ public class FindFragment extends Fragment {
                                 Log.i("FindFragmentUrl",url);
                                 intent.putExtra("title","微8条");
                                 break;
+
                         }
                         startActivity(intent);
                     }

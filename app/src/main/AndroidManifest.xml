@@ -28,6 +28,8 @@
         </activity>
         <activity android:name=".activity.SubscribeInfoActivity">
         </activity>
+        <activity android:name=".activity.DiscoverVpActivity">
+        </activity>
     </application>
 
 </manifest>
