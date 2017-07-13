@@ -4,6 +4,8 @@ package com.shen.myminiheadline.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -48,6 +50,23 @@ public class FindFragment extends Fragment {
     private FindVpAdapter adapter;
     private GridView gridView;
     private FindGvAdapter findGvAdapter;
+    private int pageIndex = 0;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case 0:
+                    pageIndex++;
+                    if(pageIndex == 3){
+                        pageIndex = 0;
+                    }
+                    Log.i("Tag",pageIndex+"");
+                    viewPager.setCurrentItem(pageIndex,true);//????true?
+                    circle();
+            }
+
+        }
+    };
     public FindFragment() {
         // Required empty public constructor
     }
@@ -140,7 +159,6 @@ public class FindFragment extends Fragment {
                                 Log.i("FindFragmentUrl",url);
                                 intent.putExtra("title","微8条");
                                 break;
-
                         }
                         startActivity(intent);
                     }
@@ -162,7 +180,15 @@ public class FindFragment extends Fragment {
 
             }
         });
-
     }
+
+    public void circle(){
+        Message message = handler.obtainMessage();
+        message.what = 0;
+        handler.sendMessageDelayed(message,3000);
+    }
+
+
+
 
 }

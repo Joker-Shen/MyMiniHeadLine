@@ -215,4 +215,16 @@
             android:layout_toRightOf="@+id/iv_my_setting"
             android:layout_marginLeft="10dp"/>
     </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="迷路啦？点我点我点我！老司机为你带路"
+            android:textColor="@android:color/black"
+            android:id="@+id/tv_goto_baiduMap"/>
+    </RelativeLayout>
 </LinearLayout>

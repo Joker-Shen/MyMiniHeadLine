@@ -22,6 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     private TextView tvCountDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        overridePendingTransition(0,R.anim.zoom_enter);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         sp = getSharedPreferences("isFirstLogin",MODE_PRIVATE);
@@ -46,7 +47,9 @@ public class SplashActivity extends AppCompatActivity {
                 editor.putBoolean("isFirstKey",true);
                 editor.commit();
                 startActivity(intent);
+
                 SplashActivity.this.finish();
+
             }
         },3000);
     }
