@@ -20,6 +20,7 @@ public class SplashActivity extends AppCompatActivity {
     private boolean isFirstLogin ;
     private MyCount myCount;
     private TextView tvCountDownTimer;
+    private Timer timer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(0,R.anim.zoom_enter);
@@ -27,11 +28,11 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         sp = getSharedPreferences("isFirstLogin",MODE_PRIVATE);
         tvCountDownTimer = (TextView) findViewById(R.id.tv_countdown_timer);
-
         isFirstLogin = sp.getBoolean("isFirstKey",true);
-        myCount = new MyCount(3000,1000);
+        myCount = new MyCount(10*1000,1000);
         myCount.start();
-        new Timer().schedule(new TimerTask() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Intent intent = new Intent();
@@ -47,11 +48,18 @@ public class SplashActivity extends AppCompatActivity {
                 editor.putBoolean("isFirstKey",true);
                 editor.commit();
                 startActivity(intent);
-
                 SplashActivity.this.finish();
-
             }
-        },3000);
+        },10*1000);
+
+        tvCountDownTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+                Intent intent = new Intent(SplashActivity.this,GuideActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     class MyCount extends CountDownTimer {

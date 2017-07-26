@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="@string/find"/>
         <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/search_icon"

@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import com.google.gson.Gson;
 import com.shen.myminiheadline.R;
 import com.shen.myminiheadline.activity.DiscoverVpActivity;
+import com.shen.myminiheadline.activity.SearchActivity;
 import com.shen.myminiheadline.activity.SubscribeInfoActivity;
 import com.shen.myminiheadline.activity.WebviewActivity;
 import com.shen.myminiheadline.adapter.FindGvAdapter;
@@ -34,6 +35,8 @@ import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.Request;
 
@@ -51,6 +54,8 @@ public class FindFragment extends Fragment {
     private GridView gridView;
     private FindGvAdapter findGvAdapter;
     private int pageIndex = 0;
+
+    private ImageView ivSearch;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -62,7 +67,7 @@ public class FindFragment extends Fragment {
                     }
                     Log.i("Tag",pageIndex+"");
                     viewPager.setCurrentItem(pageIndex,true);//????true?
-                    circle();
+
             }
 
         }
@@ -77,11 +82,37 @@ public class FindFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_find,container,false);
+        ivSearch = (ImageView) view.findViewById(R.id.iv_search);
         viewPager = (ViewPager) view.findViewById(R.id.find_vp);
         gridView = (GridView) view.findViewById(R.id.find_gv);
         listPics = new ArrayList<>();
         getViewPagerPics();
         getGridViewInfo();
+        circle();
+        ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         return view;
     }
 
@@ -183,9 +214,14 @@ public class FindFragment extends Fragment {
     }
 
     public void circle(){
-        Message message = handler.obtainMessage();
-        message.what = 0;
-        handler.sendMessageDelayed(message,3000);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                Message message = handler.obtainMessage();
+                message.what = 0;
+                handler.sendMessage(message);
+            }
+        },6000,6000);
     }
 
 

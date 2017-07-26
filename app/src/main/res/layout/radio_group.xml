@@ -19,46 +19,29 @@
             android:gravity="center_horizontal"
             >
             <RadioButton
+                style="@style/radioButton"
                 android:id="@+id/homepage"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
                 android:drawableTop="@drawable/homepage"
-                android:button="@null"
                 android:text="首页"
-                android:gravity="center_horizontal"
-                android:textColor="@android:color/white"
                 />
             <RadioButton
                 android:id="@+id/find"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:button="@null"
+                style="@style/radioButton"
                 android:drawableTop="@drawable/find"
                 android:text="发现"
-                android:gravity="center_horizontal"
-                android:textColor="@android:color/white"/>
+                />
             <RadioButton
                 android:id="@+id/myself"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:button="@null"
+                style="@style/radioButton"
                 android:drawableTop="@drawable/myself"
                 android:text="我"
-                android:gravity="center_horizontal"
-                android:textColor="@android:color/white"/>
+                />
             <RadioButton
                 android:id="@+id/welfare"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:button="@null"
+                style="@style/radioButton"
                 android:drawableTop="@drawable/welfare"
                 android:text="福利"
-                android:textColor="@android:color/white"
-                android:gravity="center_horizontal"/>
+                />
         </RadioGroup>
     </LinearLayout>
 </LinearLayout>

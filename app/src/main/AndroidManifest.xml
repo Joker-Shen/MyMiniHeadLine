@@ -4,15 +4,14 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
     <application
         android:name=".entity.MyApplication"
         android:allowBackup="true"
@@ -23,14 +22,13 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity android:name=".activity.SplashActivity">
-
         </activity>
         <activity android:name=".activity.GuideActivity">
         </activity>
@@ -40,15 +38,17 @@
         </activity>
         <activity android:name=".activity.DiscoverVpActivity">
         </activity>
-        <activity android:name=".activity.BaiduMapActivity"
+        <activity
+            android:name=".activity.BaiduMapActivity"
             android:theme="@style/Base.Theme.AppCompat.Light">
-
         </activity>
 
-            <meta-data
-                android:name="com.baidu.lbsapi.API_KEY"
-                android:value="ukV3SGhTXko3KrA0zLl7Dh1RTCSlphpq" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ukV3SGhTXko3KrA0zLl7Dh1RTCSlphpq"/>
 
+        <activity android:name=".activity.SearchActivity">
+        </activity>
     </application>
 
 </manifest>
